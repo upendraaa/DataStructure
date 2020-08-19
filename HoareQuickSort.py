@@ -6,11 +6,11 @@ def hoare_partition(arr,start,end):
     j = end+1
     while (True):
         j = j-1
-        while arr[j] > x:
+        while arr[j] < x:
             j = j-1
 
         i = i+1
-        while arr[i] < x:
+        while arr[i] > x:
             i = i+1
 
         if i < j:
@@ -22,12 +22,12 @@ def hoare_partition(arr,start,end):
 def quick_sort(arr,start,end):
     if(end<=start):
         return
-
+    print(arr)
     pivot = hoare_partition(arr,start,end)
     quick_sort(arr,start,pivot)
     quick_sort(arr,pivot+1,end)
 
 
-arr = array('i', [13,19,9,5,12,8,7,4,21,2,6,11])
+arr = array('i', [13,19,9,5,12,8,7,4,11,2,6,21])
 quick_sort(arr,0,len(arr)-1)
 print(arr)
